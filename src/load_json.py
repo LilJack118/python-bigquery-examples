@@ -1,6 +1,6 @@
 from google.cloud import bigquery
-from dataclasses import dataclass, field
-import time, json, uuid, tempfile
+from dataclasses import dataclass
+import time, json, tempfile
 
 
 @dataclass
