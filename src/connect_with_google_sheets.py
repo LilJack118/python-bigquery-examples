@@ -2,7 +2,6 @@ from google.cloud import bigquery
 from dataclasses import dataclass
 import google.auth
 import google.oauth2
-import time
 
 
 @dataclass
