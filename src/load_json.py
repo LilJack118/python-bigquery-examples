@@ -1,6 +1,6 @@
 from google.cloud import bigquery
 from dataclasses import dataclass
-import time, json, tempfile
+import time, json, tempfile, os
 
 
 @dataclass
@@ -39,10 +39,11 @@ class BigQueryJsonLoader:
         print(job.result())
 
 
+full_path = lambda relative_path: os.path.abspath(relative_path)
+
+
 def main():
     TABLE_ID = "bigq-etl.nasa.earth_meteorite_landings"
-    FILE_PATH = (
-        "/Users/kuba/Desktop/python_bigquery/files/earth_meteorite_landings.json"
-    )
-    loader = BigQueryJsonLoader(FILE_PATH, TABLE_ID)
+    FILE_PATH = "files/earth_meteorite_landings.json"
+    loader = BigQueryJsonLoader(full_path(FILE_PATH), TABLE_ID)
     loader.load()
