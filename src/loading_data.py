@@ -70,6 +70,6 @@ def main():
         LIMIT 20
     """
     bigQ_loader = BigQueryLoader(
-        query=QUERY, project_id="bigq-etl", dataset_id="Staging", table_id="test"
+        query=QUERY, project_id="bigq-etl", dataset_id="nasa", table_id="test"
     )
     bigQ_loader.load(load_to=["csv", "json"])
